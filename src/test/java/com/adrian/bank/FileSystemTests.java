@@ -1,6 +1,7 @@
 package com.adrian.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -84,9 +85,13 @@ public class FileSystemTests {
   @Test
   void testFileExists() throws IOException {
     File file = new File(TEST_DIRECTORY + TEST_FILE);
-    file.createNewFile();
-
+    file.createNewFile(); 
     assertTrue(fileSystem.fileExisits(TEST_DIRECTORY + TEST_FILE), "File should exist");
+  }
+
+  @Test
+  void testFileExists_FileDoesNotExist() {
+    assertFalse(fileSystem.fileExisits(TEST_DIRECTORY + TEST_FILE), "File should not exist");
   }
   
 }

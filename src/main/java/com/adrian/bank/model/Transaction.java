@@ -6,7 +6,7 @@ public class Transaction {
 
   private Long id;
   
-  private String cryptoType;
+  private Currency currency;
 
   private Double ammount;
 
@@ -16,9 +16,9 @@ public class Transaction {
 
   }
   
-  public Transaction(Long id, String cryptoType, Double ammount, LocalDateTime time) {
+  public Transaction(Long id, Currency currency, Double ammount, LocalDateTime time) {
     this.id = id;
-    this.cryptoType = cryptoType;
+    this.currency = currency;
     this.ammount = ammount;
     this.time = time;
   }
@@ -27,8 +27,8 @@ public class Transaction {
     return id;
   }
 
-  public String getCryptoType() {
-    return cryptoType;
+  public Currency getCurrency() {
+    return currency;
   }
 
   public Double getAmmount() {
@@ -43,8 +43,8 @@ public class Transaction {
     this.id = id;
   }
 
-  public void setCryptoType(String cryptoType) {
-    this.cryptoType = cryptoType;
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
   }
 
   public void setAmmount(Double ammount) {

@@ -8,13 +8,16 @@ public abstract class Account {
   
   private List<Transaction> transactions;
 
+  private List<Wallet> wallets;
+
   public Account() {
 
   }
 
-  public Account(Long id, List<Transaction> transactions) {
+  public Account(Long id, List<Transaction> transactions, List<Wallet> wallets) {
     this.id = id;
     this.transactions = transactions;
+    this.wallets = wallets;
   }
 
   public Long getId() {
@@ -25,11 +28,19 @@ public abstract class Account {
     return transactions;
   }
 
+  public List<Wallet> getWallets() {
+      return wallets;
+  }
+
   public void setId(Long id) {
     this.id = id;
   }
 
   public void setTransactions(List<Transaction> transactions) {
     this.transactions = transactions;
+  }
+
+  public void setWallets(List<Wallet> wallets) {
+      this.wallets = wallets;
   }
 }

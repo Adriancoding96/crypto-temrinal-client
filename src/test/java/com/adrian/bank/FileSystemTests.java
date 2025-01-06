@@ -51,7 +51,7 @@ public class FileSystemTests {
   void testReadFileContent_FileNotFound() {
     assertThrows(IOException.class, () -> 
       fileSystem.readFileContent(TEST_DIRECTORY + "notimplementedyet.java"),
-      "Sould throw IOException if file not found"
+      "Should throw IOException if file not found"
       );
   }
 
@@ -63,9 +63,21 @@ public class FileSystemTests {
   }
 
   @Test
+  void testCreateFile_FileAlreadyExists() throws IOException {
+    File file = new File(TEST_DIRECTORY + TEST_FILE);
+    file.createNewFile();
+
+    assertThrows(RuntimeException.class, () -> 
+      fileSystem.createFile(TEST_DIRECTORY, TEST_FILE),
+      "Should throw RuntimeException for existing file"
+
+    );
+  }
+
+  @Test
   void testCreateFile_DirectoryDoesNotExist() {
     assertThrows(RuntimeException.class, () -> 
-    fileSystem.createFile("security/", TEST_FILE)
+      fileSystem.createFile("security/", TEST_FILE)
     );
   }
   

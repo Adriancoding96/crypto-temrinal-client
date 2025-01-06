@@ -61,5 +61,12 @@ public class FileSystemTests {
     File file = new File(TEST_DIRECTORY + TEST_FILE);
     assertTrue(file.exists() && file.isFile(), "File should be created");
   }
+
+  @Test
+  void testCreateFile_DirectoryDoesNotExist() {
+    assertThrows(RuntimeException.class, () -> 
+    fileSystem.createFile("security/", TEST_FILE)
+    );
+  }
   
 }

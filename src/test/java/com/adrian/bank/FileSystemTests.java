@@ -80,5 +80,13 @@ public class FileSystemTests {
       fileSystem.createFile("security/", TEST_FILE)
     );
   }
+
+  @Test
+  void testFileExists() throws IOException {
+    File file = new File(TEST_DIRECTORY + TEST_FILE);
+    file.createNewFile();
+
+    assertTrue(fileSystem.fileExisits(TEST_DIRECTORY + TEST_FILE), "File should exist");
+  }
   
 }

@@ -1,6 +1,7 @@
 package com.adrian.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,6 +44,14 @@ public class FileSystemTests {
 
     String content = fileSystem.readFileContent(TEST_DIRECTORY + TEST_FILE);
     assertEquals(TEST_FILE_CONTENT, content);
+  }
+
+  @Test
+  void testReadFileContent_FileNotFound() {
+    assertThrows(IOException.class, () -> 
+      fileSystem.readFileContent(TEST_DIRECTORY + "notimplementedyet.java"),
+      "Sould throw IOException if file not found"
+      );
   }
   
 }

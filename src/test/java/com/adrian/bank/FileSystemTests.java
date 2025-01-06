@@ -93,5 +93,10 @@ public class FileSystemTests {
   void testFileExists_FileDoesNotExist() {
     assertFalse(fileSystem.fileExisits(TEST_DIRECTORY + TEST_FILE), "File should not exist");
   }
+
+  @Test
+  void testDirectoryExists() {
+    assertTrue(fileSystem.directoryExists(TEST_DIRECTORY), "directory should exist");
+  }
   
 }

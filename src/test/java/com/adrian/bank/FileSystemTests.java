@@ -96,7 +96,12 @@ public class FileSystemTests {
 
   @Test
   void testDirectoryExists() {
-    assertTrue(fileSystem.directoryExists(TEST_DIRECTORY), "directory should exist");
+    assertTrue(fileSystem.directoryExists(TEST_DIRECTORY), "Directory should exist");
+  }
+
+  @Test
+  void testDirectoryExists_DirectoryDoesNotExist() {
+    assertFalse(fileSystem.directoryExists("security/"), "Directory should not exist");
   }
   
 }
